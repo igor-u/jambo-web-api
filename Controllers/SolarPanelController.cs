@@ -39,7 +39,7 @@ namespace Jambo.Controllers
         }
 
         [HttpGet]
-        public List<SolarPanel> GetSolarPanels()
+        public IEnumerable<SolarPanel> GetSolarPanels()
         {
             return solarPanels;
         }
