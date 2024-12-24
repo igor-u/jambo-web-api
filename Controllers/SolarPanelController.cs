@@ -39,9 +39,9 @@ namespace Jambo.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<SolarPanel> GetSolarPanels()
+        public IEnumerable<SolarPanel> GetSolarPanels([FromQuery] int skip = 0, [FromQuery] int take = 10)
         {
-            return solarPanels;
+            return solarPanels.Skip(skip).Take(take);
         }
 
         [HttpGet("{serialNumber}")]
