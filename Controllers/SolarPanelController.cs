@@ -33,9 +33,12 @@ namespace Jambo.Controllers
         // }
 
         [HttpPost]
-        public void AddSolarPanel([FromBody] SolarPanel solarPanel)
+        public CreatedAtActionResult AddSolarPanel([FromBody] SolarPanel solarPanel)
         {
             solarPanels.Add(solarPanel);
+            return CreatedAtAction(nameof(GetSolarPanelBySerialNumber),
+            new { serialNumber = solarPanel.SerialNumber },
+            solarPanel);
         }
 
         [HttpGet]
