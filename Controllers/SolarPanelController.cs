@@ -43,5 +43,11 @@ namespace Jambo.Controllers
         {
             return solarPanels;
         }
+
+        [HttpGet("{serialNumber}")]
+        public IEnumerable<SolarPanel> GetSolarPanelBySerialNumber(string serialNumber)
+        {
+            return solarPanels.Where(solarPanel => solarPanel.SerialNumber.Contains(serialNumber));
+        }
     }
 }
