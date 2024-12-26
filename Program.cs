@@ -1,4 +1,14 @@
+using Jambo.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+string? dbConnectionString = builder.Configuration.GetConnectionString("JamboConnection");
+
+builder.Services.AddDbContext<JamboDbContext>(options => 
+    options.UseMySql(dbConnectionString,
+    ServerVersion.AutoDetect(dbConnectionString))
+    );
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

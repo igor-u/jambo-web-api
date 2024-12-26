@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Jambo.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Jambo.Data
@@ -11,5 +12,7 @@ namespace Jambo.Data
         public JamboDbContext(DbContextOptions<JamboDbContext> options) : base(options) {
 
         }
+
+        public DbSet<SolarPanel> SolarPanels { get; set; }
     }
 }
