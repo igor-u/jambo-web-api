@@ -4,6 +4,7 @@ namespace Jambo.Models
 {
     public class SolarPanel
     {
+        [Key]
         [Required]
         [Length(12, 12)]
         public required string SerialNumber { get; set; }
