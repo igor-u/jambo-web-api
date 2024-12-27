@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Jambo.Data;
 using Jambo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -14,10 +15,11 @@ namespace Jambo.Controllers
     public class SolarPanelController : ControllerBase
     {
         private readonly ILogger<SolarPanelController> _logger;
-
-        public static List<SolarPanel> solarPanels = new List<SolarPanel>();
-        public SolarPanelController(ILogger<SolarPanelController> logger)
+        private JamboDbContext _context;
+        public SolarPanelController(ILogger<SolarPanelController> logger,
+        JamboDbContext context)
         {
+            _context = context;
             _logger = logger;
         }
 
@@ -35,7 +37,8 @@ namespace Jambo.Controllers
         [HttpPost]
         public CreatedAtActionResult AddSolarPanel([FromBody] SolarPanel solarPanel)
         {
-            solarPanels.Add(solarPanel);
+            _context.SolarPanels.Add(solarPanel);
+            _context.SaveChanges();
             return CreatedAtAction(nameof(GetSolarPanelBySerialNumber),
             new { serialNumber = solarPanel.SerialNumber },
             solarPanel);
@@ -44,13 +47,13 @@ namespace Jambo.Controllers
         [HttpGet]
         public IEnumerable<SolarPanel> GetSolarPanels([FromQuery] int skip = 0, [FromQuery] int take = 10)
         {
-            return solarPanels.Skip(skip).Take(take);
+            return _context.SolarPanels.Skip(skip).Take(take);
         }
 
         [HttpGet("{serialNumber}")]
         public IEnumerable<SolarPanel> GetSolarPanelBySerialNumber(string serialNumber)
         {
-            return solarPanels.Where(solarPanel => solarPanel.SerialNumber.Contains(serialNumber));
+            return _context.SolarPanels.Where(solarPanel => solarPanel.SerialNumber.Contains(serialNumber));
         }
     }
 }
