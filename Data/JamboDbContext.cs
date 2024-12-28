@@ -14,5 +14,8 @@ namespace Jambo.Data
         }
 
         public DbSet<SolarPanel> SolarPanels { get; set; }
+
+        public DbSet<SolarInverter> SolarInverters { get; set; }
+    
     }
 }
