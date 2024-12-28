@@ -6,7 +6,7 @@ namespace Jambo.Models
     {
         [Key]
         [Required]
-        [Length(12, 12)]
+        [StringLength(12)]
         public required string SerialNumber { get; set; }
         [Required]
         [Range(1000, 75000)]
