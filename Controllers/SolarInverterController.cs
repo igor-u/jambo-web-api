@@ -34,6 +34,7 @@ namespace Jambo.Controllers
         //     return View("Error!");
         // }
 
+        [HttpPost]
         public CreatedAtActionResult AddSolarInverter([FromBody] SolarInverter solarInverter)
         {
             _context.SolarInverters.Add(solarInverter);
