@@ -15,6 +15,13 @@ namespace Jambo.Utils
             this.Longitude = Coordinate(longitude, -180, 180);
         }
 
+        public GeoCoordinates(string coordinates) {
+            string[] latitudeAndLongitude = coordinates.Split(' ');
+                
+            this.Latitude = Convert.ToDouble(latitudeAndLongitude[0]);
+            this.Longitude = Convert.ToDouble(latitudeAndLongitude[1]);
+        }
+
         private double Coordinate(double coordinate, double lowerRange, double upperRange) {
             if (coordinate >= lowerRange && coordinate <= upperRange) {
                 return Math.Round(coordinate, 4);
