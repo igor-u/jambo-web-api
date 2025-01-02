@@ -16,7 +16,7 @@ namespace Jambo.Utils
         }
 
         public GeoCoordinates(string coordinates) {
-            string[] latitudeAndLongitude = coordinates.Split(' ');
+            string[] latitudeAndLongitude = coordinates.Split(", ");
                 
             this.Latitude = Convert.ToDouble(latitudeAndLongitude[0]);
             this.Longitude = Convert.ToDouble(latitudeAndLongitude[1]);
