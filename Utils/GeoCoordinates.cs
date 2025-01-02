@@ -10,6 +10,7 @@ namespace Jambo.Utils
         public double Latitude { get; set; }
         public double Longitude { get; set; }
 
+        public GeoCoordinates() {}
         public GeoCoordinates(double latitude, double longitude) {
             this.Latitude = Coordinate(latitude, -90, 90);
             this.Longitude = Coordinate(longitude, -180, 180);
