@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Jambo.Data;
 using Jambo.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Jambo.Controllers
@@ -35,7 +36,7 @@ namespace Jambo.Controllers
         //     return View("Error!");
         // }
     
-            [HttpPost]
+        [HttpPost]
         public CreatedAtActionResult AddSolarPowerPlant([FromBody] SolarPowerPlant solarPowerPlant)
         {
             _context.SolarPowerPlants.Add(solarPowerPlant);
@@ -48,14 +49,20 @@ namespace Jambo.Controllers
         [HttpGet]
         public IEnumerable<SolarPowerPlant> GetSolarPowerPlants([FromQuery] int skip = 0, [FromQuery] int take = 10)
         {
-            return _context.SolarPowerPlants.Skip(skip).Take(take);
+            return _context.SolarPowerPlants
+            .Include(spp => spp.SolarPanels)
+            .Include(spp => spp.SolarInverters)
+            .ToList();
         }
 
         [HttpGet("{id}")]
         public IEnumerable<SolarPowerPlant> GetSolarPowerPlantById(string id)
         {
-            return _context.SolarPowerPlants.Where(solarPowerPlant => solarPowerPlant.Id.ToString().Contains(id));
+            return _context.SolarPowerPlants
+            .Where(solarPowerPlant => solarPowerPlant.Id.ToString()
+            .Contains(id))
+            .Include(spp => spp.SolarPanels)
+            .Include(spp => spp.SolarInverters);
         }
-    
     }
 }
