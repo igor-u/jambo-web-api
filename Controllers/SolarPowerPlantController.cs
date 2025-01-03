@@ -40,7 +40,21 @@ namespace Jambo.Controllers
         public CreatedAtActionResult AddSolarPowerPlant([FromBody] SolarPowerPlant solarPowerPlant)
         {
             _context.SolarPowerPlants.Add(solarPowerPlant);
+
+            foreach (SolarPanel solarPanel in solarPowerPlant.SolarPanels) {
+                // if solarPanel exists in the database, it gets updated
+                // otherwise, an exception is thrown, and no changes are made in the database
+                _context.SolarPanels.Entry(solarPanel).State = EntityState.Modified;
+            }
+
+            foreach (SolarInverter solarInverter in solarPowerPlant.SolarInverters) {
+                // if solarInverter [...]
+                // [...]
+                _context.SolarInverters.Entry(solarInverter).State = EntityState.Modified;
+            }
+
             _context.SaveChanges();
+
             return CreatedAtAction(nameof(GetSolarPowerPlantById),
             new { id = solarPowerPlant.Id },
             solarPowerPlant);
