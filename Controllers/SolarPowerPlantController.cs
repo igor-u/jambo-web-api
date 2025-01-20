@@ -39,6 +39,8 @@ namespace Jambo.Controllers
         [HttpPost]
         public CreatedAtActionResult AddSolarPowerPlant([FromBody] SolarPowerPlant solarPowerPlant)
         {
+            solarPowerPlant.SetTotalSolarInverterWattage();
+            solarPowerPlant.SetTotalSolarPanelWattage();
             _context.SolarPowerPlants.Add(solarPowerPlant);
 
             foreach (SolarPanel solarPanel in solarPowerPlant.SolarPanels) {
