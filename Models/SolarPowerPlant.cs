@@ -17,10 +17,7 @@ namespace Jambo.Models
         public required ICollection<SolarPanel> SolarPanels { get; set; }
         [Required]
         public required ICollection<SolarInverter> SolarInverters { get; set; }
-        //since totalWattage is a dynamic value, there is no need to serialize it
-        [JsonIgnore]
         public int TotalSolarPanelWattage { get; set; }
-        [JsonIgnore]
         public int TotalSolarInverterWattage { get; set; }
     }
 }
