@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Jambo.Data;
+using Jambo.Dtos;
 using Jambo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,11 +20,13 @@ namespace Jambo.Controllers
         private readonly ILogger<SolarPowerPlantController> _logger;
 
         private JamboDbContext _context;
+        private IMapper _mapper;
         public SolarPowerPlantController(ILogger<SolarPowerPlantController> logger,
-        JamboDbContext context)
+        JamboDbContext context, IMapper mapper)
         {
             _context = context;
             _logger = logger;
+            _mapper = mapper;
         }
 
         // public IActionResult Index()
@@ -37,10 +41,9 @@ namespace Jambo.Controllers
         // }
     
         [HttpPost]
-        public CreatedAtActionResult AddSolarPowerPlant([FromBody] SolarPowerPlant solarPowerPlant)
+        public CreatedAtActionResult AddSolarPowerPlant([FromBody] AddSolarPowerPlantDto addSolarPowerPlantDto)
         {
-            solarPowerPlant.SetTotalSolarInverterWattage();
-            solarPowerPlant.SetTotalSolarPanelWattage();
+            SolarPowerPlant solarPowerPlant = _mapper.Map<SolarPowerPlant>(addSolarPowerPlantDto);
             _context.SolarPowerPlants.Add(solarPowerPlant);
 
             foreach (SolarPanel solarPanel in solarPowerPlant.SolarPanels) {

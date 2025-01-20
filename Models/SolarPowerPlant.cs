@@ -22,15 +22,5 @@ namespace Jambo.Models
         public int TotalSolarPanelWattage { get; set; }
         [JsonIgnore]
         public int TotalSolarInverterWattage { get; set; }
-        public void SetTotalSolarPanelWattage() {
-            TotalSolarPanelWattage = SolarPanels
-            .Select(p => p.Power)
-            .Sum();
-        }
-        public void SetTotalSolarInverterWattage() {
-            TotalSolarInverterWattage = SolarInverters
-            .Select(p => p.RatedPower)
-            .Sum();
-        }
     }
 }
