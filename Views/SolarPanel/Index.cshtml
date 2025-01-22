@@ -1,0 +1,23 @@
+﻿@model IEnumerable<SolarPanel>
+<h1>Solar Panels</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Serial Number</th>
+            <th>Power</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <label>@item.SerialNumber</label>
+                </td>
+                <td>
+                    <label>@item.Power</label>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -12,7 +12,7 @@ namespace Jambo.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class SolarPanelController : ControllerBase
+    public class SolarPanelController : Controller
     {
         private readonly ILogger<SolarPanelController> _logger;
         private JamboDbContext _context;
@@ -23,16 +23,17 @@ namespace Jambo.Controllers
             _logger = logger;
         }
 
-        // public IActionResult Index()
-        // {
-        //     return View();
-        // }
+        [HttpGet("Index")]
+        public IActionResult Index()
+        {
+            return View(_context.SolarPanels.ToList());
+        }
 
-        // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        // public IActionResult Error()
-        // {
-        //     return View("Error!");
-        // }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View();
+        }
 
         [HttpPost]
         public CreatedAtActionResult AddSolarPanel([FromBody] SolarPanel solarPanel)
