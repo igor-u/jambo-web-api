@@ -1,0 +1,27 @@
+﻿@model IEnumerable<SolarInverter>
+<h1>Solar Inverters</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Serial Number</th>
+            <th>Rated Power</th>
+            <th>Peak Power</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <label>@item.SerialNumber</label>
+                </td>
+                <td>
+                    <label>@item.RatedPower</label>
+                </td>
+                <td>
+                    <label>@item.PeakPower</label>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

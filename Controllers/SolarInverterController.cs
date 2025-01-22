@@ -23,16 +23,17 @@ namespace Jambo.Controllers
             _logger = logger;
         }
 
-        // public IActionResult Index()
-        // {
-        //     return View();
-        // }
+        [HttpGet("Index")]
+        public IActionResult Index()
+        {
+            return View(_context.SolarInverters.ToList());
+        }
 
-        // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        // public IActionResult Error()
-        // {
-        //     return View("Error!");
-        // }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View("Error!");
+        }
 
         [HttpPost]
         public CreatedAtActionResult AddSolarInverter([FromBody] SolarInverter solarInverter)
