@@ -29,16 +29,17 @@ namespace Jambo.Controllers
             _mapper = mapper;
         }
 
-        // public IActionResult Index()
-        // {
-        //     return View();
-        // }
+        [HttpGet("Index")]
+        public IActionResult Index()
+        {
+            return View(_context.SolarPowerPlants);
+        }
 
-        // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        // public IActionResult Error()
-        // {
-        //     return View("Error!");
-        // }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View("Error!");
+        }
     
         [HttpPost]
         public CreatedAtActionResult AddSolarPowerPlant([FromBody] AddSolarPowerPlantDto addSolarPowerPlantDto)

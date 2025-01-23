@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SolarPowerPlant>
+<h1>Solar Power Plants</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Coordinates</th>
+            <th>Total Solar Panel Wattage</th>
+            <th>Total Solar Inverter Wattage</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <label>@item.Id</label>
+                </td>
+                <td>
+                    <label>@item.Coordinates</label>
+                </td>
+                <td>
+                    <label>@item.TotalSolarPanelWattage</label>
+                </td>                       
+                <td>
+                    <label>@item.TotalSolarInverterWattage</label>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
