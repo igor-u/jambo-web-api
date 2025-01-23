@@ -2,6 +2,18 @@ html {
   font-size: 14px;
 }
 
+.navbar-brand {
+  color: rgb(224, 224, 0) !important;
+}
+
+.navbar {
+  background-color: black !important;
+}
+
+.text-dark {
+  color: white !important;
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
