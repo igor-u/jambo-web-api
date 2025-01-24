@@ -13,9 +13,11 @@ public class PeakPowerValidator : ValidationAttribute
     protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
         var inverter = (SolarInverter)validationContext.ObjectInstance;
-        int peakPower = (int)value;
+#pragma warning disable CS8605 // Unboxing a possibly null value.
+            int peakPower = (int)value;
+#pragma warning restore CS8605 // Unboxing a possibly null value.
 
-        int minPeakPower = (int)(inverter.RatedPower * 1.2); 
+            int minPeakPower = (int)(inverter.RatedPower * 1.2); 
 
         int maxPeakPower = (int)(inverter.RatedPower * 1.5); 
 
