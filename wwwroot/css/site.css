@@ -1,9 +1,13 @@
+:root {
+  --primary-color: rgb(224, 224, 0);
+}
+
 html {
   font-size: 14px;
 }
 
 .navbar-brand {
-  color: rgb(224, 224, 0) !important;
+  color: var(--primary-color) !important;
 }
 
 .navbar {
