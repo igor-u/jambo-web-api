@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "c84b84f2-fb43-46f2-a26b-0db145702118",
+		"name": "Jambo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29233191"
+	},
+	"item": [
+		{
+			"name": "SolarPanel",
+			"item": [
+				{
+					"name": "Get SolarPanels",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/SolarPanel"
+					},
+					"response": []
+				},
+				{
+					"name": "Get SolarPanel By Serial Number",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/SolarPanel/123"
+					},
+					"response": []
+				},
+				{
+					"name": "Post SolarPanel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"serialNumber\": \"123456789123\",\n  \"power\": 500\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/SolarPanel"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SolarPowerPlant",
+			"item": [
+				{
+					"name": "Get SolarPowerPlants",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/SolarPowerPlant"
+					},
+					"response": []
+				},
+				{
+					"name": "Get SolarPowerPlant By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/SolarPowerPlant/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Post SolarPowerPlant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"coordinates\": {\n    \"latitude\": 123,\n    \"longitude\": 123\n  },\n  \"solarPanels\": [\n    {\n      \"serialNumber\": \"123456789123\",\n      \"power\": 500\n    },\n        {\n      \"serialNumber\": \"987654321987\",\n      \"power\": 500\n    }\n  ],\n  \"solarInverters\": [\n    {\n      \"serialNumber\": \"123456789123\",\n      \"ratedPower\": 75000,\n      \"peakPower\": 112500\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/SolarPowerPlant"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SolarInverter",
+			"item": [
+				{
+					"name": "Get SolarInverter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/SolarInverter"
+					},
+					"response": []
+				},
+				{
+					"name": "Get SolarInverter By Serial Number",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/SolarInverter/123"
+					},
+					"response": []
+				},
+				{
+					"name": "Post SolarInverter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"serialNumber\": \"123456789123\",\n  \"ratedPower\": 75000,\n  \"peakPower\": 112500\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/SolarInverter"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
