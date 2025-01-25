@@ -19,23 +19,25 @@ This project serves as an experimental exploration of the ASP.NET Core framework
     }
   }
 }%%
-classDiagram
-      SolarPowerPlant --|> SolarPanel
-      SolarPowerPlant --|> SolarInverter
-      SolarPowerPlant : +long Id
-      SolarPowerPlant : +GeoCoordinates Coordinates
-      SolarPowerPlant: +ICollection<SolarPanel> SolarPanels
-      SolarPowerPlant: +ICollection<SolarInverter> SolarInverters
-      SolarPowerPlant: +int TotalSolarPanelWattage
-      SolarPowerPlant: +int TotalSolarInverterWattage
-      class SolarPanel{
-          +string SerialNumber
-          +int Power
+erDiagram
+      SolarPowerPlant o|--|{ SolarPanel : has
+      SolarPowerPlant o|--|{ SolarInverter : has
+      SolarPowerPlant {
+        long Id
+        GeoCoordinates Coordinates
+        ICollection SolarPanels
+        ICollection SolarInverters
+        int TotalSolarPanelWattage
+        int TotalSolarInverterWattage
+    }
+      SolarPanel{
+        string SerialNumber
+        int Power
       }
-      class SolarInverter{
-          +string SerialNumber
-          +int RatedPower
-          +int PeakPower
+      SolarInverter{
+        string SerialNumber
+        int RatedPower
+        int PeakPower
       }
 ```
 
@@ -5084,7 +5086,6 @@ solid Mesh
   endfacet
 endsolid Mesh
 ```
-
 
 ## Architecture
 For this practice, MVC and REST were utilized separately. The view layer is responsible for displaying data (using the GET method), while the POST method is accessible through API testing platforms such as Postman or Insomnia.
