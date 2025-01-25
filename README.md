@@ -5096,7 +5096,7 @@ endsolid Mesh
 - [Postman](https://www.postman.com)
 
 ## Architecture
-For this practice, MVC and REST were utilized separately. The view layer is responsible for displaying data (using the GET method), while the POST method is accessible through API testing platforms such as Postman or Insomnia.
+For this practice, MVC and REST were utilized separately. The view layer is responsible for displaying data (using the GET method), while the POST method is accessible through API testing platforms such as Postman or Insomnia. A collection of requests can be found in the [Jambo.postman_collection.json](https://github.com/igor-u/jambo-web-api/blob/main/Jambo.postman_collection.json) file. The collection can be imported into either tool to execute the requests after running the project.
 
 ## Objectives
 - Learn about the C# programming language
