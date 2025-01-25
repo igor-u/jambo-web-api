@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Jambo.Migrations
 {
     [DbContext(typeof(JamboDbContext))]
-    [Migration("20250102232243_AlterSolarPowerPlantsCoordinatesType")]
-    partial class AlterSolarPowerPlantsCoordinatesType
+    [Migration("20250125224458_CreateJamboDatabase")]
+    partial class CreateJamboDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,6 +77,12 @@ namespace Jambo.Migrations
                     b.Property<string>("Coordinates")
                         .IsRequired()
                         .HasColumnType("varchar(19)");
+
+                    b.Property<int>("TotalSolarInverterWattage")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalSolarPanelWattage")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
