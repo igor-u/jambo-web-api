@@ -5087,7 +5087,7 @@ endsolid Mesh
 
 
 ## Architecture
-For this practice, MVC and REST were utilized separately.. The view layer is responsible for displaying data (using the GET method), while the POST method is accessible through API testing platforms such as Postman or Insomnia.
+For this practice, MVC and REST were utilized separately. The view layer is responsible for displaying data (using the GET method), while the POST method is accessible through API testing platforms such as Postman or Insomnia.
 
 ## Objectives
 - Learn about the C# programming language
