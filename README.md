@@ -5113,6 +5113,13 @@ This project utilizes MySQL as the primary database. The connection between the 
 <img src="https://github.com/user-attachments/assets/1f3e7e7f-8d7f-4dd5-bb74-ffc5f18b15da"/>
 </p>
 
+**To create the database, along with its tables**:
+- Navigate to the project's root directory in your terminal.
+- Apply migrations:
+```
+dotnet ef database update
+```
+
 ## Tests
 To run the tests in this .NET application, execute the following command in the project's root directory:
 ```
