@@ -69,14 +69,14 @@ This project utilizes MySQL as the primary database. The connection between the 
 </p>
 
 **To create the database, along with its tables**:
-- Navigate to the project's root directory in your terminal.
+- Navigate to the project's `src/` directory in your terminal.
 - Apply migrations:
 ```
 dotnet ef database update
 ```
 
 ## Tests
-To run the tests in this .NET application, execute the following command in the project's root directory:
+To run the tests in this .NET application, execute the following command in the project's `src/` directory:
 ```
 dotnet test
 ```
@@ -86,7 +86,7 @@ This project can be run in two ways:
 
 1. Using `dotnet run`
 
-- Navigate to the project's root directory in your terminal.
+- Navigate to the project's `src/` directory in your terminal.
 - Run the following command:
 ```
 dotnet run
@@ -95,7 +95,7 @@ The application will start and be accessible through `http://localhost:5171`.
 
 2. Using Docker
 
-- Navigate to the project's root directory in your terminal.
+- Navigate to the project's `src/` directory in your terminal.
 - Build the Docker image:
 ```
 docker build -t jambo-web-api .
@@ -107,3 +107,13 @@ docker run --network host jambo-web-api --rm
 The `--network host`  parameter is used to make the container share the host machine's network. This allows the container to directly access local services, such as the database.
 
 The application will start and be accessible through `http://localhost:8080`.
+
+## About EF Core
+
+For in-depth information on Entity Framework Core concepts used in this project, please refer to the official Microsoft documentation:
+
+[Conventions for relationship discovery](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/conventions)
+
+[Eager Loading of Related Data](https://learn.microsoft.com/en-us/ef/core/querying/related-data/eager)
+
+[Shadow and Indexer Properties](https://learn.microsoft.com/en-us/ef/core/modeling/shadow-properties)
